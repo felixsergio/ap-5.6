@@ -10,4 +10,12 @@ RUN docker-php-ext-install mysql
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install pdo_mysql
 RUN a2enmod rewrite
-COPY php.ini /usr/local/etc/php/php.ini
+#COPY php.ini /usr/local/etc/php/php.ini
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+# Install npm
+RUN apt-get update -y && apt-get install curl -y && curl -sL https://deb.nodesource.com/setup_10.x && apt clean -y
+RUN apt-get install nodejs npm -y
