@@ -7,6 +7,7 @@ RUN apt-get install libpng12-dev libfreetype6-dev -y
 RUN docker-php-ext-install pdo pdo_pgsql
 RUN docker-php-ext-install soap
 RUN docker-php-ext-install mysql
+RUN docker-php-ext-install pgsql
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install pdo_mysql
 RUN a2enmod rewrite
