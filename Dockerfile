@@ -4,6 +4,16 @@ MAINTAINER Sergio Felix <sergiofelix16@gmail.com>
 RUN apt-get update
 RUN apt-get install -y libpq-dev libxml2-dev
 RUN apt-get install libpng12-dev libfreetype6-dev -y
+
+# Set locales
+RUN apt-get install locales
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen 
+RUN echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "it_IT.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
+RUN locale-gen
+
 RUN docker-php-ext-install pdo pdo_pgsql
 RUN docker-php-ext-install soap
 RUN docker-php-ext-install mysql
